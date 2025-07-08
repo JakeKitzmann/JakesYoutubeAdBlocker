@@ -2,13 +2,14 @@
 	"name": "Jake's YouTube AdBlocker",
 	"version": "1.0",
 	"manifest_version": 3,
-	"description": "FUCK youtube ads. This extension blocks any blockable youtube ads. Unskippable ads will be skipped by moving the current playback time to the end of the ad. This extension also automatically clicks the skip ad button. Click the button and see Mr. Max in color to enable!",
+	"description": "This extension blocks any blockable youtube ads. Unblockable ads will be skipped by moving the current playback time to the end of the ad. This extension also automatically clicks the skip ad button.",
 	"permissions": ["scripting"],
 	"host_permissions": ["*://*.youtube.com/*"],
 	"background": {
 		"service_worker": "background.js"
 	},
-	"action": {
+
+	"action": { 
 		"default_icon": {
 			"16": "icons/logo_16x16.png",
 			"32": "icons/logo_32x32.png",
@@ -16,10 +17,20 @@
 		},
 		"default_title": "Jake's YouTube AdBlocker"
 	},
+
 	"icons": {
 		"16": "icons/logo_16x16.png",
 		"32": "icons/logo_32x32.png",
 		"48": "icons/logo_48x48.png",
 		"128": "icons/logo_128x128.png"
-	}
+	},
+
+	"content_scripts": [
+		{
+			"matches": ["*://*.youtube.com/*"],
+			"js": ["content.js"],
+			"run_at": "document_idle"
+		}
+	]
 }
+
