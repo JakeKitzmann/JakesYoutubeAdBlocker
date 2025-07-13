@@ -5,9 +5,6 @@
 	"description": "This extension blocks any blockable youtube ads. Unblockable ads will be skipped by moving the current playback time to the end of the ad. This extension also automatically clicks the skip ad button.",
 	"permissions": ["scripting"],
 	"host_permissions": ["*://*.youtube.com/*"],
-	"background": {
-		"service_worker": "background.js"
-	},
 
 	"action": { 
 		"default_icon": {
